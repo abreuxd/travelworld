@@ -27,47 +27,33 @@ if (!isset($_SESSION['usuario'])) {
                     <div class="card-body">
                         <form action="controllers/controller.ficha.php" method="post">
                         <div class="form-group">
-                                <label>Nombre </label>
-                                <?php
-                                $cliente->select($ficha->data->idUsuario);
-                                ?>       
+                            <label>Nombre </label>
+                            <input class="form-control" type="text" name='idu' value="<?=$ficha->data->nombreUsuario?>"/>
                         </div>
                         <div class="form-group">
                                 <label>Precio Tarifa </label>
-                                <?php
-                                $tarifa->select($ficha->data->idTarifa);
-                                ?>       
+                                <input type="text" class="form-control" name="idt" value="<?=$ficha->data->precioTarifa?>">       
                         </div>
                         <div class="form-group">
                                 <label>Lugar del Origen</label>
-                                <?php
-                                $lugar->selectOrigen($ficha->data->idLugar);
-                                ?>
+                                <input type="text" class="form-control" name="ilo" value="<?=$ficha->data->nombreOrigen?>">
                         </div>
                         <div class="form-group">
                                 <label>Lugar del Destino</label>
-                                <?php
-                                $lugar->selectDestino($ficha->data->idLugar);
-                                ?>
+                                <input type="text" class="form-control" name="ild" value="<?=$ficha->data->nombreDestino?>">
                         </div>
                         <div class="form-group">
-                                <label>Fecha  Viaje</label>
-                                <input type="date" class="form-control" name="fev" value="<?=$ficha->data->fechaViaje?>">
+                                <label>Fecha Viaje</label>
+                                <input type="text" class="form-control" name="fev" value="<?=$ficha->data->fechaViaje?>">
                         </div>
-                        <div class="form-group"> 
+                        <div class="form-group">
                                 <label>Tipo Transporte</label>
-                                <?php
-                                $transporte->select($ficha->data->idTransporte);
-                                ?>
+                                <input type="text" class="form-control" name="idtr" value="<?=$ficha->data->tipoTransporte?>">
                         </div>
-                        
                         <div class="form-group">
                                 <label>Reserva</label>
-                                <?php
-                                $reserva->select($ficha->data->idReserva);
-                                ?>
+                                <input type="text" class="form-control" name="idr" value="<?=$ficha->data->costoReserva?>">
                         </div>
-                        
                         <input type="hidden" name="id" value="<?= $id ?>">
                                 <?php
                                 if($id) {
@@ -77,7 +63,7 @@ if (!isset($_SESSION['usuario'])) {
                                 }
                                 ?>
                             
-                            <a href="?page=adm-clientes" class="btn btn-dark">Regresar</a>
+                            <a href="?page=adm-fichas" class="btn btn-dark">Regresar</a>
                             <input type="submit" class="btn btn-primary" value="Guardar">
                         </form>
                     </div>
